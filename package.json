@@ -1,0 +1,23 @@
+{
+  "name": "santamizer",
+  "version": "1.0.0",
+  "description": "This is a web app that givs everyone the opportunity to become secret santas by the website assigning people to their secret santas.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phinias12/Secret-Santa-Clause.git"
+  },
+  "author": "Phidias Mendez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/phinias12/Secret-Santa-Clause/issues"
+  },
+  "homepage": "https://github.com/phinias12/Secret-Santa-Clause#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  }
+}
