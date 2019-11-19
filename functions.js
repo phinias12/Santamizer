@@ -17,7 +17,7 @@ var shuffle = function(arr) {
 var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'santamizer401@gmail.com',
+        user: process.env.GMAIL_USER,
         pass: process.env.GMAIL_PASS
     }
 });
@@ -25,7 +25,7 @@ var transporter = nodemailer.createTransport({
 var email = function(names, emails) {
     for (var i = 0; i < names.length; i++){
         var mail = {
-            from: 'santamizer401@gmail.com',
+            from: process.env.GMAIL_USER,
             to: emails[i],
             subject: 'You\'re Secret Santa Encased!',
             text: 'Hey ' + emails[i] + ',\n\n You\'re assigned to ' + names[i] + '.'

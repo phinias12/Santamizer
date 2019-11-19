@@ -5,6 +5,7 @@ var bodyParser = require('body-parser')
 var app = express();
 
 app.use('/assets', express.static('assets'));
+const port = process.env.PORT || 3000;
 
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
@@ -22,4 +23,6 @@ app.post('/submit', urlencodedParser, function(req, res){
     res.send('Santamized');
 });
 
-app.listen(3000);
+app.listen(port, () => {
+    console.log(`Starting server at ${port}`)
+});
