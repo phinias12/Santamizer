@@ -1,3 +1,3 @@
 function addSanta() {
-    $("#addMore").append("Name: <input type='text' name='name'> Email: <input type='email' name='email'><br>");
+    $("#addMore").append("Name: <input type='text' name='name' required> Email: <input type='email' name='email' required><br>");
 }

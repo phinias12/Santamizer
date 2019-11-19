@@ -4,23 +4,18 @@
         <title>Santamizer</title>
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script>
-        function addSanta() {
-            $("#addMore").append("Name: <input type='text' name='name'> Email: <input type='email' name='email'><br>");
-        }
-        </script>
         <script src="/assets/js/main.js"></script>
     </head>
     <body>
         <form id="santas" method="POST" action="/submit">
-            Name: <input type="text" name="name">
-            Email: <input type="email" name="email">
+            Name: <input type="text" name="name" required>
+            Email: <input type="email" name="email" required>
             <br>
-            Name: <input type="text" name="name">
-            Email: <input type="email" name="email">
+            Name: <input type="text" name="name" required>
+            Email: <input type="email" name="email" required>
             <br>
-            Name: <input type="text" name="name">
-            Email: <input type="email" name="email">
+            Name: <input type="text" name="name" required>
+            Email: <input type="email" name="email" required>
             <br>
             <div id="addMore"></div>
             <button type="button" id="updateButton" class="btn btn-primary" onclick="addSanta();">Add a Santa</button>
