@@ -2,9 +2,10 @@
   "name": "santamizer",
   "version": "1.0.0",
   "description": "This is a web app that givs everyone the opportunity to become secret santas by the website assigning people to their secret santas.",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
