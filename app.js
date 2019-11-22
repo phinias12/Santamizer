@@ -16,11 +16,9 @@ app.get('/', function(req, res){
 app.post('/submit', urlencodedParser, function(req, res){
     let names = req.body.name;
     let emails = req.body.email;
-    console.log(emails);
-    let assigned = functions.shuffle(names) 
-    console.log(assigned);
+    let assigned = functions.shuffle(names);
     functions.email(assigned, emails);
-    res.send('Santamized');
+    res.sendFile(__dirname + '/submit.html');
 });
 
 app.listen(port, () => {

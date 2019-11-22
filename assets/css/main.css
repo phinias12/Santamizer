@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster&display=swap');
+
+#title {
+    font-family: 'Lobster', cursive;
+    font-size: 55px;
+}
+
+body {
+    padding-top: 10%;
+    background-image: url('/assets/img/Background.jpg');
+    background-size: auto;
+    color: azure;
+}
+
+.santa {
+    padding: 10px;
+}
+
+.santas {
+    overflow: auto;
+    height: 350px;
+}
+
+#submittedTitle {
+    font-family: 'Lobster', cursive;
+    font-size: 100px;
+}
