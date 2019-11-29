@@ -17,7 +17,7 @@ app.post('/submit', urlencodedParser, function(req, res){
     let names = req.body.name;
     let emails = req.body.email;
     let assigned = functions.shuffle(names);
-    functions.email(assigned, emails);
+    functions.email(names, assigned, emails);
     res.sendFile(__dirname + '/submit.html');
 });
 

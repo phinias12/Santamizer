@@ -3,14 +3,16 @@ require('dotenv').config()
 
 // Shuffling functions
 var shuffle = function(arr) {
-    for (let i = arr.length - 1; i > 0; i--) {
+    let copy = arr.slice()
+
+    for (let i = copy.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * i);
-        const temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
+        const temp = copy[i];
+        copy[i] = copy[j];
+        copy[j] = temp;
     }
 
-    return arr
+    return copy;
 };
 
 // Emailing function
@@ -22,13 +24,13 @@ var transporter = nodemailer.createTransport({
     }
 });
 
-var email = function(names, emails) {
+var email = function(names, assigned, emails) {
     for (var i = 0; i < names.length; i++){
         var mail = {
             from: process.env.GMAIL_USER,
             to: emails[i],
             subject: 'You\'re Secret Santa Encased!',
-            text: 'Hey ' + emails[i] + ',\n\n You\'re assigned to ' + names[i] + '.'
+            text: 'Hey ' + names[i] + ',\n\n You\'re assigned to ' + assigned[i] + '.'
         };
 
         transporter.sendMail(mail, function(error, info){
