@@ -1,5 +1,7 @@
-var nodemailer = require('nodemailer');
 require('dotenv').config()
+const accountSid = process.env.ACCOUNT_ID; 
+const authToken = process.env.API_TOKEN;
+const client = require('twilio')(accountSid, authToken); 
 
 // Shuffling functions
 var shuffle = function(arr) {
@@ -15,36 +17,22 @@ var shuffle = function(arr) {
     return copy;
 };
 
-// Emailing function
-var transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: process.env.GMAIL_USER,
-        pass: process.env.GMAIL_PASS
-    }
-});
-
-var email = function(names, assigned, emails) {
+// Texting Function
+var text = function(names, assigned, texts){
     for (var i = 0; i < names.length; i++){
-        var mail = {
-            from: process.env.GMAIL_USER,
-            to: emails[i],
-            subject: 'You\'re Secret Santa Encased!',
-            text: 'Hey ' + names[i] + ',\n\n You\'re assigned to ' + assigned[i] + '.'
-        };
-
-        transporter.sendMail(mail, function(error, info){
-            if (error) {
-                console.log(error);
-            } else {
-                console.log('Email sent: ' + info.response);
-            }
-        });
+        client.messages 
+            .create({  
+                body: 'Hey there '+ names[i] + '! You\'re gonna be the Santa Clause for ' + assigned[i] + '. Happy Holidays!',
+                from: process.env.PHONE,       
+                to: texts[i] 
+            }) 
+            .then(message => console.log(message.sid)) 
+            .done();
     }
 };
 
 module.exports = {
     shuffle: shuffle,
-    email: email
+    text: text
 };
 
